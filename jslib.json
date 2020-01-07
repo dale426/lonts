@@ -1,0 +1,11 @@
+{
+    "name": "lonts",
+    "npmname": "lonts",
+    "umdname": "lonts",
+    "username": "dale426",
+    "type": "ts",
+    "module": "umd,esm,commonjs",
+    "test": "mocha",
+    "lang": "zh",
+    "version": "1.6.0"
+}
