@@ -69,4 +69,7 @@ function div(arg1, arg2) {
 }
 var calc = { add: add, sub: sub, mul: mul, div: div };
 
+var index = { calc: calc };
+
+export default index;
 export { calc };

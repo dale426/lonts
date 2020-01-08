@@ -1,24 +1,35 @@
 # 文档
-这是一个xxx库，有xxx功能
+这是一个前端开发常用工具库
 
 ## api模版
-函数简单介绍
-
-函数详细介绍
-
-函数参数和返回值（要遵守下面的例子的规则）
-
-- param {string} name1 name1描述
-- param {number} [name2] name2描述 ([]代表可选参数)
-- param {string|number} name3 name3描述 (| 代表多种类型)
-- param { * } name3 name3描述 (*代表任意类型)
-- param {boolean} obj.sex 复合参数定义
-- return {string} 返回值描述
-
-举个例子（要包含代码用例）
-
+#### 四则运算
 ```js
-// 代码
+/**
+ * 加法，计算js中两个数的和
+ * @param {Number} arg1 第一个加数
+ * @param {Number} arg2 第二个加数
+ * @param {Number} d 保留的小数位数，可以不传
+ * @returns {Number} 两个数的计算结果
+ */
+declare function add(arg1: number | string, arg2: number | string, d: number | undefined): number;
+/**
+ * 减法
+ * @param 参数与加法一样
+ * @returns {number}
+ */
+declare function sub(arg1: number | string, arg2: number | string): number;
+/**
+ * 乘法
+ * @param 参数与加法一致
+ * @returns {number}
+ * 计算小数位共多少位， 然后去除小数点进行乘法运算，然后再除以 10 的位数次方
+ */
+declare function mul(arg1: number | string, arg2: number | string): number;
+/**
+ * 除法
+ * @param 参数与加法一致
+ * @returns {number}
+ * 计算分母小数点位数 - 分子小数点位数的差 再 乘以10 的位数次方
+ */
+declare function div(arg1: number | string, arg2: number | string): number;
 ```
-
-特殊说明，比如特殊情况下会报错等

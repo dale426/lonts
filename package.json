@@ -1,7 +1,7 @@
 {
   "name": "lonts",
-  "version": "0.1.0",
-  "description": "jslib最好用的js库脚手架",
+  "version": "0.1.1",
+  "description": "前端开发常用工具库",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
   "module": "dist/index.esm.js",
@@ -59,7 +59,5 @@
     "nyc": "13.1.0",
     "source-map-support": "0.5.9"
   },
-  "dependencies": {
-    "lee-calc": "^1.0.0"
-  }
+  "dependencies": {}
 }

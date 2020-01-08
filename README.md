@@ -50,13 +50,13 @@ $ npm install --save lonts
 如果你是node环境
 
 ```js
-var base = require('lonts');
+var lonts = require('lonts');
 ```
 
 如果你是webpack等环境
 
 ```js
-import base from 'lonts';
+import lonts from 'lonts';
 ```
 
 如果你是requirejs环境

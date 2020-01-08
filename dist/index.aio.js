@@ -75,7 +75,10 @@
     }
     var calc = { add: add, sub: sub, mul: mul, div: div };
 
+    var index = { calc: calc };
+
     exports.calc = calc;
+    exports.default = index;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
