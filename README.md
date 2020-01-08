@@ -7,7 +7,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/lonts.svg?style=flat-square)](http://www.npmtrends.com/lonts)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/dale426/lonts.svg)](http://isitmaintained.com/project/dale426/lonts "Percentage of issues still open")
 
-最好用的 `JS|TS` 第三方库脚手架
+使用`TS` 编写的第三方库js工具库
 
 ## :star: 特性
 
