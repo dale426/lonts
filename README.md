@@ -106,7 +106,7 @@ $ npm run release
 将新版本发布到npm
 
 ```bash
-$ npm publish
+$ npm publish --registry=http://registry.npmjs.org
 ```
 
 ## 贡献者列表
