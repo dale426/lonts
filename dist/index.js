@@ -1,5 +1,5 @@
 /*!
- * lonts 0.1.0 (https://github.com/dale426/lonts)
+ * lonts 0.1.2 (https://github.com/dale426/lonts)
  * API https://github.com/dale426/lonts/blob/master/doc/api.md
  * Copyright 2017-2020 dale426. All Rights Reserved
  * Licensed under MIT (https://github.com/dale426/lonts/blob/master/LICENSE)
@@ -73,7 +73,68 @@ function div(arg1, arg2) {
 }
 var calc = { add: add, sub: sub, mul: mul, div: div };
 
-var index = { calc: calc };
+/**
+ * 时间格式化
+ *
+ * @param {*} date 时间对象Date
+ * @param {*} fmt
+ * @returns
+ */
+function fmtDate(date, fmt) {
+    date = date || new Date();
+    fmt = fmt || 'yyyy-MM-dd hh:mm:ss';
+    var ob = {
+        'M+': date.getMonth() + 1,
+        'd+': date.getDate(),
+        'h+': date.getHours(),
+        'm+': date.getMinutes(),
+        's+': date.getSeconds(),
+        'q+': Math.floor((date.getMonth() + 3) / 3),
+        'S': date.getMilliseconds() //毫秒
+    };
+    if (/(y+)/.test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+    }
+    for (var k in ob) {
+        if (new RegExp('(' + k + ')').test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (ob[k]) : (('00' + ob[k]).substr(('' + ob[k]).length)));
+        }
+    }
+    return fmt;
+}
+/**
+ *  金钱千分位
+ *
+ * @param {((number|string))} val 需要转换的数字
+ * @param {*} num 千分位 默认3个一位
+ */
+function fmtMoney(val, num) {
+    if (num === void 0) { num = 3; }
+    var reg = new RegExp('\\B(?=(?:\\d{' + num + '})+(?!\\d))', 'g');
+    return String(val).replace(reg, ',');
+}
+
+/**
+ * 身份证、手机号脱敏处理
+ *
+ * @param {string|number} [target=''] 目标字符串
+ * @param {number} [start=4] 开始位置
+ * @param {number} [end=3] 结束位置
+ * @returns {string}
+ */
+function encrypt(target, start, end) {
+    if (target === void 0) { target = ''; }
+    if (start === void 0) { start = 3; }
+    if (end === void 0) { end = 4; }
+    var reg = new RegExp("^(\\d{" + start + "})\\d+(\\w{" + end + "})$", 'i');
+    var middle = String(target).slice(start, -end).replace(/\w/g, '*');
+    return String(target).replace(reg, "$1" + middle + "$2");
+}
+
+var index = { calc: calc, fmtDate: fmtDate, fmtMoney: fmtMoney, encrypt: encrypt };
 
 exports.calc = calc;
+exports.fmtDate = fmtDate;
+exports.fmtMoney = fmtMoney;
+exports.encrypt = encrypt;
 exports.default = index;

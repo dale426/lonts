@@ -1,6 +1,6 @@
 {
   "name": "lonts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "前端开发常用工具库",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
